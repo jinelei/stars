@@ -5,7 +5,7 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        starts: './src/stars.js',
+        entry: './src/entry.js',
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
