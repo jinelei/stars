@@ -1,3 +1,5 @@
 import Stars from './app/stars'
 
-new Stars();
+let stars = new Stars();
+
+stars.loop();
