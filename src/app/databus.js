@@ -23,8 +23,7 @@ export default class DataBus{
     generateStar(){
         let pos_x = Math.random() * this[screen_width];
         let pos_y = Math.random() * this[screen_height];
-        let radius = Math.random() * 70;
-        this.stars.push(new Star(pos_x, pos_y, radius, true));
+        this.stars.push(new Star(pos_x, pos_y, 2, true));
         console.log('generate star');
     }
 

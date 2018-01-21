@@ -1,5 +1,5 @@
-import Stars from './app/stars'
+import Game from './app/game'
 
-let stars = new Stars();
+let game = new Game();
 
-stars.loop();
+game.loop();

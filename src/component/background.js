@@ -1,7 +1,5 @@
 import ConstPool from '../const_pool';
 
-let background_speed = Symbol('background_speed');
-
 export default class Background{
 
     constructor(ctx){
@@ -10,10 +8,19 @@ export default class Background{
         let img_src = require('../images/bg.jpg')
         this.img.src = img_src;
         this.offset = 0;
+        this.speed = 1;
+    }
+
+    speedUp(){
+        this.speed++;
+    }
+
+    speedDown(){
+        this.speed = this.speed > 1 ? this.speed - 1 : 0;
     }
 
     update(){
-        this.offset = (this.offset+1) %ConstPool.getInstance().screen_height;
+        this.offset = (this.offset + this.speed) %ConstPool.getInstance().screen_height;
     }
 
     render(){
