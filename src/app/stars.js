@@ -1,8 +1,10 @@
 import DataBus from './databus';
+import Background from '../component/background';
 
 let canvas = document.getElementById('star');
 let ctx = canvas.getContext('2d');
 let databus = new DataBus();
+let background = new Background(ctx);
 
 export default class Stars{
     constructor(){
@@ -11,8 +13,9 @@ export default class Stars{
 
     render(){
         ctx.clearRect(0, 0, 600, 800);
-        ctx.fillStyle = "#24292e";
-        ctx.fillRect (0, 0, 600, 800);
+        // ctx.fillStyle = "#24292e";
+        // ctx.fillRect (0, 0, 600, 800);
+        background.render();
         databus.stars.map(star => {
             ctx.fillStyle = "rgb(200, 0, 0)";
             ctx.fillRect(star.pos_x,star.pos_y, star.radius, star.radius);
@@ -20,14 +23,13 @@ export default class Stars{
     }
 
     update(){
-        databus.generateStar();
+        // databus.generateStar();
+        background.update();
     }
 
     loop(){
 
-        if(this.frame++ % 60 == 0){
-            this.update();
-        }
+        this.update();
 
         this.render();
 
